@@ -1,0 +1,71 @@
+                                                                        ***Kernel***
+
+    *Oque é um Kernel?: Kernel é a parte central de um Sistema Operacional (SO), que gerencia e intermedia a comunicação entre hardware e software
+Funções:
+-Gerenciamento de recursos como: CPU, memória, dispositivos e afins
+-Comunicação interna: Facilita e gerencia chamadas, execuções e encadeamento dos processos do SO
+-Gerenciamento de processos: criação, execução e escalonamento
+-Comunicação de hardware e software por meio dos drivers
+-Gerenciamento de arquivos: manipulação de arquivos e controle de acessos e integridade
+-Gerenciamento de segurança: isolamento de processos e privilégio de acessos
+Chamadas de sistema: soolititação de serviços do SO e interface com programas de usuário
+
+    *Processos: Programas em execução, consumindo  recurso de hardware para realizar uma tarefa designada
+
+    *Threads: Menor unidade de execução dentro do processo, pode ser encarado como um subprocesso.
+Ex: Threads de transferência de diversas músicas via bluetooth simultaneamente
+
+***
+
+    *Modos de operação Modo Kernel x Modo Usuário
+-Modo Kernel: É o modo de acesso privilégiado, com acesso direto ao hardware e a recursos críticos
+-Modo Usuário: Esse modo não tem acesso direto ao hardware ou de alteração a partes críticas do sistema, opera na parte do software e com chamadas de sistema para o kernel
+
+***
+
+    *Oque é Abstração: Abstração é quando algo é "traduzido" de um modo complexo pra uma visão direta, dentro do conceito do kernel, são simplificações de processos longos e complexos feitos outr requisitados pelo SO/Kernel
+Ex: No linux um .txt aparece como algo simples pro usuário, enquanto no disco isso é muito mais complexo tendo setores, blocos de dados, endereços físicos, tabelas de alocação, controles do dispositivo e etc. O kernel pega essa complexidade  e cria a abstração para programas acessarem o txt de forma simples
+
+    ***
+
+    *Oque são IPC's (Comunicação inter processos): São mecanismos criados por conta da impossibilidade da comunicação de processos com a memória do outro, já que cada processo tem sua própria memória isolada, que resultam na impossibilidade de troca de dados entre processos, os IPC's são responsáveis por essas trocas de dados isoladas da memória
+-Tipos de IPC:
+
+Pipes: fluxo simples, onde um processo envia dados e outro processo lê
+
+Sockets: fluxo simples feito pela rede (local ou servidor)
+
+Filas de mensagem: processos trocam meensagens por uma fila gerenciada pelo kernel
+
+Memória compartilhada: dois processos acessam a mesma região da memória
+
+Semáforos: evitam que dois processos acessem algo ao mesmo tempo
+
+
+
+    *Arquiteturas de Kernel
+-Monolítico: Todos os serviços principais do SO, são executados no espaço protegido do Kernel, recebendo apenas chamadas do Sistema
+
+Vantages: Alta perfomance e velocidade, Facilidade de integração com drivers, sistemas de arquivos e gerenciamento de memória se comunicam diretamente.
+
+Desvantagens: Uma falha única carrega a possibilidade de queda geral, um bug na camada do kernel pode comprometer todo o sistema, o código é mais complexo de dar manutenção.
+
+***
+
+-Microkernel: Onde só serviços essencial rodam no modo kernel, como o gerenciamento de processos e memória
+
+Vantagens: Maior segurança com pouca coisa rodando no kernel, mais dificíl de cair por algum erro por conta de descentralização de atividades, mais fácil de dar manutenção
+
+Desvantagens: Performance inferior, mais trocar de contexto de modo entre usuário e kernel, mais complexidade para ser eficiente e mais dificuldade de integração com drivers
+
+***
+
+-Kernel Híbrido: Combina elementos do kernel monólitico com o microkernel, onde de forma parecida com o microkernel, alguns serviços rodam no modo usuário, mas essa divisão é maior que a do microkernel, variando de acordo com o desenvolvimento, mas sempre contendo mais serviços rodando no modo usuário que o monolítico e menos que no microkernel, podendo ter vatanges e desvantagens dos dois tipos de kernel, contudo, buscando o equilíbrio
+
+***
+
+EXTRA (Arqs pouco usadas, muito específicas e pra estudo):
+
+-Exokernel: expões os hardware direto aos aplicativos, não existindo abstrações no kernel, apenas gerenciamento de memória e encapsulamento
+
+-Nanokernel: Leva o conceito do microkernel ao extremo, onde quase tudo roda no espaço do usuário e o kernel apenas fornece as abstrações e a comuniação entre os processos

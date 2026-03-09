@@ -1,0 +1,30 @@
+***Modelos de arquitetura de sistemas distribuidos:***
+
+    °Monolito: É quando todo o sistema roda interligado pelo mesmo código: lógica, negócio, dados...
+
+
+****************************
+
+
+    °Edge computer: É um modelo onde os dados são processados localmente, priorizando a privacidade e baixa latencia, existe a possibilidade de armazenamento
+    na núvem mas é algo opcional e apartado e caso existe, funcionaria como um "repositório"
+        Ex: Rodar um modelo de ia localmente em um servidor caseiro montado por um pc e pós uso, subir os dados pra núvem
+
+
+****************************
+
+
+    °Microserviço: Um modelo de arquitetura onde os processos de uma api rodam separados, em serviços diferentes que apenas se comunicam, trazendo
+    a possibilidade de linguagens divergentes entre serviços, escalabilidade granular, caso só um dos serviços necessite de melhorias e refatorações, deploys apartados e evitando quedas gerais caso um dos serviços apresente problema. Geralmente é feito com bancos de dados apartados para cada serviço, pois dependendo do uso, pode trazer de volta diversos problemas de um monolito com as dificuldades de uma arquitetura de microserviço. As arquiteturas de microserviço se dividem em:
+
+        Síncrona: Um serviço espera a resposta de outro, trazendo uma simplicidade contudo, uma dependência momentânea
+
+        Assíncrona: Os serviços enviam mensagens/requisições a uma fila de espera (Rabbit, Kafka....) e a medida que os outros seviços puxam a fila, todos seguem trabalhando
+
+        API Gateway: Um redirecionador, configurado pra enviar corretamente cada requisição para o serviço correto
+
+
+****************************
+
+
+    °Arquitetura em camadas: Ao invés do código se organizar como um bloco gigante, ou em partes aleatórias, uma construção é adotada pra api, onde cada camada fica responsável pela sua parte no funcionamento dentro de um repositório único. Essas diviões são construídas visando as necessidades de desenvolvimento, desde camadas de métodos (negócio) até camadas de comunicação com banco e transferências de dados(Persistência)

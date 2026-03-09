@@ -1,0 +1,79 @@
+Guia de Estudo: Fundamentos de Arquitetura e Memória Java
+
+1. O Ponto de Partida (JVM e Main)
+
+O método public static void main(String[] args) é a porta de entrada. A JVM não lê o código; ela busca por essa "assinatura" específica no Bytecode.
+
+    Arquitetura: É um método estático para que possa ser chamado antes da alocação de qualquer objeto no Heap.
+
+2. Visibilidade e Encapsulamento (Modificadores)
+
+Controlam o acoplamento do sistema:
+
+    Private: Restringe o estado ao escopo da classe (Encapsulamento puro).
+
+    Default (Package): Permite colaboração entre classes do mesmo módulo/pacote sem exposição externa.
+
+    Protected: Focado em extensibilidade via herança.
+
+    Public: Define a interface pública da sua API.
+
+3. O Modificador Static (Escopo de Classe)
+
+    Alocação: Vive no Metaspace (fora do Heap comum).
+
+    Compartilhamento: Variáveis estáticas são compartilhadas por todas as instâncias. Mudou em uma, mudou em todas.
+
+    Uso Ideal: Constantes e métodos utilitários sem estado (Stateless).
+
+4. Gestão de Memória (Stack vs Heap)
+
+    Stack (Pilha): Memória local, rápida e privada por Thread. Armazena variáveis locais e endereços de referência. Limpeza automática ao fim do método.
+
+    Heap (Monte): Memória global e compartilhada. Onde os objetos reais residem. Depende do Garbage Collector para limpeza.
+
+    Relação: A Stack guarda o "ponteiro" (referência) e o Heap guarda o "corpo" (objeto).
+
+5. Tipos de Retorno e Dados
+
+    Primitivos: Alta performance, ocupam a Stack (int, long, double).
+
+    Objetos (Wrappers): Vivem no Heap, permitem valores nulos, mas custam mais processamento.
+
+    Void: Representa uma ação/comando que não gera um resultado imediato para o chamador, focada em efeitos colaterais.
+
+6.    Java Cheat Sheet (Consulta Rápida)
+        Assinaturas e Modificadores
+        Modificador	Classe	Pacote	Subclasse	Geral
+        public	S	S	S	S
+        protected	S	S	S	N
+        default	S	S	N	N
+        private	S	N	N	N
+
+7.    Memória: Onde as coisas ficam?
+
+        Variavel Local (int x = 10): Stack.
+
+        Objeto (new Pessoa()): Heap.
+
+        Referência (Pessoa p): Stack (apontando para o Heap).
+
+    Constante (static final): Metaspace.
+
+        Regras de Ouro (Best Practices)
+
+        Static: Use para métodos que não mudam o estado de nada (Ex: cálculos matemáticos).
+
+        Final: Sempre que um valor não puder mudar. Ajuda na otimização da JVM.
+
+        Encapsulamento: Atributos sempre private. Use Getters/Setters apenas se necessário.
+
+        Early Return: Em métodos com retorno, use o return o quanto antes para evitar else desnecessários.
+
+8. Erros Comuns
+
+    NullPointerException: Você tentou acessar um objeto via uma referência na Stack que aponta para null no Heap.
+
+    StackOverflowError: Excesso de métodos empilhados (comum em recursão infinita).
+
+    OutOfMemoryError: O Heap está cheio e o Garbage Collector não consegue liberar espaço.
