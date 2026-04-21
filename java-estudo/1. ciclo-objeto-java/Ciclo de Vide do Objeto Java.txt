@@ -1,0 +1,12 @@
+Guida de Estudo: O Ciclo de Vida do Objeto: Do Molde à Execução
+
+1. Parâmetros: O contato de entrada
+    
+    Os parenteses do método definem oque ele precisa pra trabalhar, onde:
+
+    ºA classe/método entregam oque é necessário para rodar (int ou string), onde a funcionalidade se resumo em um método que aliado a classe pode processar dados variantes
+
+2. New: comando de inicio do objeto, Aloca um espaço exclusivo na memória RAM. É o que separa um objeto do outro (ex: o livro1 ter um título diferente do livro2).
+
+3. This: comando de criação do construtor, serve para garantir um estado inicial ao objeto (new), podendo 
+também fornecer argumentos para essa inicialização

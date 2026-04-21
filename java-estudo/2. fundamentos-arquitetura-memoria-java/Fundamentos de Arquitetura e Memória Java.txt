@@ -16,7 +16,7 @@ Controlam o acoplamento do sistema:
 
     Protected: Focado em extensibilidade via herança.
 
-    Public: Define a interface pública da sua API.
+    Public: Define a interface pública, onde o membro definido pode ser visualizado fora da classe.
 
 3. O Modificador Static (Escopo de Classe)
 
@@ -26,7 +26,7 @@ Controlam o acoplamento do sistema:
 
     Uso Ideal: Constantes e métodos utilitários sem estado (Stateless).
 
-4. Gestão de Memória (Stack vs Heap)
+    Função: Static define membros que pertencem à Classe (compartilhados e globais) e não ao Objeto, permitindo acesso direto sem a necessidade de instanciar (new).
 
     Stack (Pilha): Memória local, rápida e privada por Thread. Armazena variáveis locais e endereços de referência. Limpeza automática ao fim do método.
 
@@ -42,13 +42,11 @@ Controlam o acoplamento do sistema:
 
     Void: Representa uma ação/comando que não gera um resultado imediato para o chamador, focada em efeitos colaterais.
 
-6.    Java Cheat Sheet (Consulta Rápida)
-        Assinaturas e Modificadores
-        Modificador	Classe	Pacote	Subclasse	Geral
-        public	S	S	S	S
-        protected	S	S	S	N
-        default	S	S	N	N
-        private	S	N	N	N
+Modificador,    Classe,    Pacote,    Subclasse(Herança),    Geral(Mundo)
+public:           Sim,       Sim,            Sim,                Sim
+protected:        Sim,       Sim,            Sim,                Não
+default(vazio):   Sim,       Sim,            Não,                Não
+private:          Sim,       Não,            Não,                Não
 
 7.    Memória: Onde as coisas ficam?
 

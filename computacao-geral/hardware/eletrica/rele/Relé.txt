@@ -8,7 +8,7 @@
 
 *Núcleo de ferro: Amplifica o campo magnético da bobina
 
-* Âncora (parte móvel): Uma peça metálica puxada pelo campo magnético
+*Âncora (parte móvel): Uma peça metálica puxada pelo campo magnético
 
 *Contatos elétricos: Funcionam como o interruptor, que abrem e fecham o circuito
 

@@ -5,7 +5,7 @@
  * Arquitetura: É um método estático para que possa ser chamado antes da alocação
  * de qualquer objeto no Heap.
  */
-public class GuiaJavaFundamental {
+public class FundamentosArquiteturaMemoria {
 
     // 3. O MODIFICADOR STATIC (ESCOPO DE CLASSE)
     // Alocação: Vive no Metaspace (fora do Heap comum).
