@@ -60,7 +60,7 @@ private:          Sim,       Não,            Não,                Não
 
         Regras de Ouro (Best Practices)
 
-        Static: Use para métodos que não mudam o estado de nada (Ex: cálculos matemáticos).
+        Static: Use para métodos que não mudam o estado de um objeto, e sim de uma classe
 
         Final: Sempre que um valor não puder mudar. Ajuda na otimização da JVM.
 
